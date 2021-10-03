@@ -8,15 +8,26 @@
     justify-content: space-between
     align-items: center
   
-.logo
-  font-family: $head-font
-  font-size: 24px
-  text-decoration: none
-  text-transform: uppercase
-  font-weight: 600
-  color: $ruby-color
-  cursor: pointer
-  
+.menu
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  &-logo
+    font-family: $head-font
+    font-size: 24px
+    text-decoration: none
+    text-transform: uppercase
+    font-weight: 600
+    color: $ruby-color
+    cursor: pointer
+  // // Мобильное меню
+  &-button
+    &--mobile
+      &--hidden
+        display: none
+
+
 .nav
   display: flex
   align-items: center
@@ -58,12 +69,4 @@
     text-overflow: ellipsis
 
 
-// // Мобильное меню
-// .menu
-//   &-button
-//     position: fixed
-//     top: 22px
-//     right: 24px
-//     &--mobile
-//       &--hidden
-//         display: none
+
