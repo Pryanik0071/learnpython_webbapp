@@ -1,2 +1,68 @@
-h1
-  color: red
+.header
+  background-color: #EEE2DC
+  &-wrapper
+    max-width: 1140px
+    margin: auto
+    padding: 20px 0px 15px 0px
+    display: flex
+    justify-content: space-between
+    align-items: center
+  
+.logo
+  font-family: $head-font
+  font-size: 24px
+  text-decoration: none
+  text-transform: uppercase
+  font-weight: 600
+  color: $ruby-color
+  cursor: pointer
+.nav
+  display: flex
+  align-items: center
+  &__list
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__item
+    margin-right: 40px
+  &__link
+    font-family: $paragraph-font
+    font-size: 17px
+    font-weight: 400
+    text-decoration: none
+    color: $ruby-color
+    &__list
+      position: fixed
+      top: 70px
+    &__item
+      font-family: $paragraph-font
+      font-size: 15px
+      font-weight: 300
+    
+.button
+  &-login
+    margin-left: 40px
+    max-width: 80px
+    padding: 5px 10px
+    border: 2px solid $ruby-color
+    border-radius: 8px
+    background-color: transparent
+    font-family: $paragraph-font
+    font-size: 17px
+    font-weight: 400
+    text-align: center
+    color: $ruby-color
+    cursor: pointer
+    overflow: hidden
+    text-overflow: ellipsis
+
+
+// // Мобильное меню
+// .menu
+//   &-button
+//     position: fixed
+//     top: 22px
+//     right: 24px
+//     &--mobile
+//       &--hidden
+//         display: none

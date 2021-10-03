@@ -5,9 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document!</title>
-    <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }} ">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@600&family=Open+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href=" {{ url_for('static', filename='css/style.css') }} "
+    />
   </head>
   <body>
-    <h1>Hello!</h1>
+    <header class="header">
+      <div class="header-wrapper">
+        <a href="#" class="logo">ProgrammigBooks</a>
+        <!-- /.logo -->
+        <div class="nav">
+          <nav class="nav-wrapper">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link level">Уровень</a>
+                <ul class="nav__link__list">
+                  <li class="nav__link__item">Начинающим</li>
+                  <li class="nav__link__item">Опытным</li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Язык</a>
+                <ul class="nav__link__list">
+                  <li class="nav__link__item">Python</li>
+                  <li class="nav__link__item">JavaScript</li>
+                  <li class="nav__link__item">Пример 1</li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Направление</a>
+                <ul class="nav__link__list">
+                  <li class="nav__link__item">Синтаксис</li>
+                  <li class="nav__link__item">Вэб-разработка</li>
+                  <li class="nav__link__item">Пример 1</li>
+                  <li class="nav__link__item">Пример 2</li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Издательство</a>
+                <ul class="nav__link__list">
+                  <li class="nav__link__item">Питер</li>
+                  <li class="nav__link__item">Пример 1</li>
+                  <li class="nav__link__item">Пример 2</li>
+                  <li class="nav__link__item">Пример 3</li>
+                </ul>
+              </li>
+            </ul>
+            <!-- /.nav__list -->
+          </nav>
+          <!-- /.nav-wrapper -->
+          <button class="button-login">Войти</button>
+        </div>
+        <!-- /.nav -->
+      </div>
+      <!-- /.header-wrapper -->
+      <!-- <button class="menu-button menu-button--mobile--hidden">
+        <span class="menu-button__line"></span>
+        <span class="menu-button__line"></span>
+        <span class="menu-button__line"></span>
+      </button> -->
+    </header>
+    <!-- /.header -->
   </body>
 </html>
