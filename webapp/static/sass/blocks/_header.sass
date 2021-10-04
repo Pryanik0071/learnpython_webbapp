@@ -1,5 +1,10 @@
 .header
-  background-color: #EEE2DC
+  background-color: $beige-light
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
+  z-index: 99
   &-wrapper
     max-width: 1140px
     margin: auto
@@ -21,12 +26,11 @@
     font-weight: 600
     color: $ruby-color
     cursor: pointer
-  // // Мобильное меню
+  // Мобильное меню
   &-button
     &--mobile
       &--hidden
         display: none
-
 
 .nav
   display: flex
@@ -68,5 +72,5 @@
     overflow: hidden
     text-overflow: ellipsis
 
-
-
+.scroll
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
