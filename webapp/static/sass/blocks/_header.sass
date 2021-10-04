@@ -47,14 +47,26 @@
     font-weight: 400
     text-decoration: none
     color: $ruby-color
-    &__list
-      display: none
-      position: fixed
-      top: 70px
+
+.dropdown
+  &-menu
+    display: none
+    position: fixed
+    top: 70px
+    z-index: 99
+    padding: 10px 15px 0px 15px
+    box-shadow: 4px 4px 6px -1px $gray-color, -4px 4px 6px -1px $gray-color
+    border: 1px solid $gray-color
+    background-color: $beige-light
+    border-radius: 0px 0px 5px 5px
     &__item
+      margin-bottom: 10px
+    &__link
       font-family: $paragraph-font
       font-size: 15px
       font-weight: 300
+      color: $ruby-color
+      text-decoration: none
     
 .button
   &-login
@@ -65,7 +77,7 @@
     border-radius: 8px
     background-color: transparent
     font-family: $paragraph-font
-    font-size: 17px
+    font-size: 18px
     font-weight: 400
     text-align: center
     color: $ruby-color

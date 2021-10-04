@@ -16,7 +16,7 @@ $(document).ready(function () {
   // Скрывать/показывать список ссылок при клике на заголовок
   $(".nav__link").on("click", function () {
     var listLinks = $(this).data("category");
-    $(".nav__link__list").hide();
+    $(".dropdown-menu").hide();
     $(`[data-category='${listLinks}']`).show();
   });
 
@@ -24,13 +24,13 @@ $(document).ready(function () {
   document.addEventListener("keyup", closeModal);
   function closeModal(event) {
     if (event.key === "Escape" || event.type === "click") {
-      $(".nav__link__list").hide();
+      $(".dropdown-menu").hide();
     }
   }
 
   // Закрыть список ссылок при клике вне области ссылок
   $(document).mouseup(function (e) {
-    var container = $(".nav__link__list");
+    var container = $(".dropdown-menu");
     if (container.has(e.target).length === 0) {
       container.hide();
     }
