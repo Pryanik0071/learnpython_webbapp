@@ -1,7 +1,96 @@
-// @media (max-width: 1200px)
+@media (max-width: 1200px)
+  .header
+    &-wrapper
+      max-width: 960px
 
-// @media (max-width: 992px)
+@media (max-width: 992px)
+  .header
+    &-wrapper
+      max-width: 720px
 
-// @media (max-width: 768px)
+  .nav
+    &__item
+      margin-right: 20px
+    &__link
+      font-size: 15px
+    
+  .button
+    &-login
+      margin-left: 20px
+
+@media (max-width: 768px)
+  .header
+    &-wrapper
+      max-width: 560px
+      width: 88%
+      flex-wrap: wrap
+
+  .nav
+    &-wrapper
+      width: 100%
+    &__list
+      flex-direction: column
+      align-items: start
+    &__item
+      display: flex
+      flex-direction: column
+      margin-right: 0px
+      margin-bottom: 10px
+      width: 100%
+    &__link
+      margin-bottom: 5px
+    &--mobile
+      &--hidden
+        display: none
+      &--visible
+        padding: 20px 0px 30px 0px
+        display: flex
+        position: fixed
+        top: 63px
+        max-width: 100vw
+        left: 0px
+        right: 0px
+        z-index: 99
+        background-color: $beige-light
+    &-container
+      max-width: 560px
+      width: 88%
+      flex-direction: column
+      align-items: start
+      margin: auto
+
+  .dropdown
+    &-menu
+      position: static
+      padding: 10px 15px 0px 15px
+      box-shadow: none
+      border: none
+      background-color: transparent
+      border-radius: none
+
+  .button
+    &-login
+      margin-top: 20px
+      margin-left: 0px
+
+  // Кнопка перехода в меню
+  .menu
+    &-button
+      &--mobile
+        &--hidden
+          display: flex
+          width: 22px
+          height: 18px
+          padding: 0
+          align-items: center
+          justify-content: space-between
+          flex-direction: column
+          border: none
+          background-color: transparent
+          cursor: pointer
+      &__line
+        width: 100%
+        height: 2px
+        background-color: $ruby-color
 
 // @media (max-width: 576px)
