@@ -131,3 +131,6 @@ dmypy.json
 # Idea settings
 .idea/
 .vscode/
+
+# local db
+webapp.db
