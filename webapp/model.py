@@ -24,12 +24,12 @@ class Book(db.Model):
     year = db.Column(db.SmallInteger, nullable=False)
     publisher_id = db.Column(db.Integer, db.ForeignKey('publisher.id'),
                              nullable=False)
-    price = db.Column(db.Numeric(10, 2))
+    price = db.Column(db.String)
     description = db.Column(db.String)
     category_id = db.relationship('Category', secondary=book_category, lazy='subquery',
                                   backref=db.backref('books', lazy='joined'))
     photo_link = db.Column(db.String, unique=True, nullable=False)
-    isbn = db.Column(db.Text, nullable=True)
+    isbn = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
         return f'Book: {self.title} - id: {self.id}'
@@ -37,8 +37,7 @@ class Book(db.Model):
 
 class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.Text, nullable=False)
-    last_name = db.Column(db.Text, nullable=False)
+    name = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
         return f'Author: {self.first_name} {self.last_name} id: {self.id}'
@@ -46,7 +45,7 @@ class Author(db.Model):
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False, unique=True)
 
     def __repr__(self):
         return f'Category: {self.name} - id: {self.id}'
@@ -54,7 +53,7 @@ class Category(db.Model):
 
 class Publisher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
+    title = db.Column(db.String, nullable=False, unique=True)
     books = db.relationship('Book', backref='publisher', lazy=True)
 
     def __repr__(self):
