@@ -134,3 +134,6 @@ dmypy.json
 
 # local db
 webapp.db
+
+# config
+webapp/config.py
