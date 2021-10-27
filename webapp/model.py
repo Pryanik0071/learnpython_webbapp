@@ -40,7 +40,7 @@ class Author(db.Model):
     name = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
-        return f'Author: {self.first_name} {self.last_name} id: {self.id}'
+        return f'Author: {self.name} id: {self.id}'
 
 
 class Category(db.Model):
