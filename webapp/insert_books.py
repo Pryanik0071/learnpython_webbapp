@@ -52,7 +52,7 @@ def insert_books_db(books_from_parser: dict):
                                     publisher_id=id_publisher,
                                     price=book_info['price'],
                                     description=book_info['description'],
-                                    photo_link=book_info['image'],
+                                    image=book_info['image'],
                                     isbn=book_info['isbn'])
                     db.session.add(new_book)
                     db.session.flush()

@@ -28,7 +28,7 @@ class Book(db.Model):
     description = db.Column(db.String)
     category_id = db.relationship('Category', secondary=book_category, lazy='subquery',
                                   backref=db.backref('books', lazy='joined'))
-    photo_link = db.Column(db.String, unique=True, nullable=False)
+    image = db.Column(db.String, unique=True, nullable=False)
     isbn = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
