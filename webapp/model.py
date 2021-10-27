@@ -19,15 +19,15 @@ book_category = db.Table('book_category',
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
-    author_id = db.relationship('Author', secondary=book_author, lazy='subquery',
-                                backref=db.backref('books', lazy='joined'))
+    authors = db.relationship('Author', secondary=book_author, lazy='subquery',
+                              backref=db.backref('books', lazy='joined'))
     year = db.Column(db.SmallInteger, nullable=False)
     publisher_id = db.Column(db.Integer, db.ForeignKey('publisher.id'),
                              nullable=False)
     price = db.Column(db.String)
     description = db.Column(db.String)
-    category_id = db.relationship('Category', secondary=book_category, lazy='subquery',
-                                  backref=db.backref('books', lazy='joined'))
+    categories = db.relationship('Category', secondary=book_category, lazy='subquery',
+                                 backref=db.backref('books', lazy='joined'))
     image = db.Column(db.String, unique=True, nullable=False)
     isbn = db.Column(db.Text, nullable=False, unique=True)
 
