@@ -128,16 +128,21 @@
                 <a href="../book/{{ book.id }}" class="book-name"
                   >{{ book.title }}</a
                 >
-                {% for author in book.authors %}
-                <span class="book-author">{{ author.name }}</span>
-                {% endfor %}
+                <div class="book-authors">
+                  {% for author in book.authors %}
+                  <span class="book-author">{{ author.name }}</span>
+                  {% endfor %}
+                </div>
+                <!-- /.authors-wrapper -->
                 <span class="book-price">{{ book.price }}</span>
                 <span class="book-publisher">{{ book.publisher.title }}</span>
                 <span class="book-year">{{ book.year }}</span>
                 {% if book.description|length > 255 %}
-                  <p class="book-description">{{ book.description[:255]| + '...' }}</p>
+                <p class="book-description">
+                  {{ book.description[:255] + '...' }}
+                </p>
                 {% else %}
-                  <p class="book-description">{{ book.description }}</p>
+                <p class="book-description">{{ book.description }}</p>
                 {% endif %}
               </div>
               <!-- /.book-info -->
