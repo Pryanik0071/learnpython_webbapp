@@ -1,2 +1,61 @@
 .books
   margin-top: 70px
+  &-wrapper
+    padding-top: 80px
+    margin-left: 250px
+
+.container
+  max-width: 1140px
+  margin: auto
+
+.book
+  &-item
+    display: flex
+    justify-content: space-between
+    padding: 10px 10px 50px 10px
+    margin-bottom: 50px
+    border-bottom: 1px solid $gray-color
+  &-info
+    display: flex
+    justify-content: space-between
+    flex-direction: column
+    font-family: $paragraph-font
+    font-size: 14px
+    font-weight: 300
+    margin-bottom: 15px
+    overflow: hidden
+    text-overflow: ellipsis
+  &-image
+    &__link
+      margin-top: 20px
+      margin-left: 20px
+      margin-right: 60px
+    &__img
+      min-width: 180px
+      height: 230px
+      box-shadow: 2px 2px 10px $gray-color
+  &-name
+    height: 55px
+    font-family: $head-font
+    font-size: 24px
+    font-style: italic  
+    text-decoration: none
+    text-transform: uppercase
+    font-weight: 600
+    color: $ruby-color
+    cursor: pointer
+    margin-bottom: 15px
+    overflow: hidden
+    text-overflow: ellipsis
+  &-author
+    display: block
+    height: 16px
+    margin-bottom: 15px
+  &-publisher
+    height: 16px
+    margin-bottom: 15px
+  &-year
+    height: 16px
+    margin-bottom: 15px
+  &-description
+    height: 115px

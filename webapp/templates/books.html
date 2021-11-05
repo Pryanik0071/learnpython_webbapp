@@ -18,7 +18,7 @@
     <header class="header">
       <div class="header-wrapper">
         <div class="menu">
-          <a href="#" class="menu-logo">DeveloperBooks</a>
+          <a href="../" class="menu-logo">DeveloperBooks</a>
           <!-- /.logo -->
           <button class="menu-button menu-button--mobile--hidden">
             <span class="menu-button__line"></span>
@@ -118,11 +118,27 @@
           <ul class="book-list">
             {% for book in book_list %}
             <li class="book-item">
-              <img src="{{ book.image }}" alt="" class="book-image" />
+              <a href="../book/{{ book.id }}" class="book-image__link"
+                ><img
+                  src="{{ book.image }}"
+                  alt="Image: {{ book.title  }}"
+                  class="book-image__img"
+              /></a>
               <div class="book-info">
-                <a href="" class="book-name">{{ book.title }}</a>
-                <span class="book-author">123</span>
-                <p class="book-description">{{ book.description }}</p>
+                <a href="../book/{{ book.id }}" class="book-name"
+                  >{{ book.title }}</a
+                >
+                {% for author in book.authors %}
+                <span class="book-author">{{ author.name }}</span>
+                {% endfor %}
+                <span class="book-price">{{ book.price }}</span>
+                <span class="book-publisher">{{ book.publisher.title }}</span>
+                <span class="book-year">{{ book.year }}</span>
+                {% if book.description|length > 255 %}
+                  <p class="book-description">{{ book.description[:255]| + '...' }}</p>
+                {% else %}
+                  <p class="book-description">{{ book.description }}</p>
+                {% endif %}
               </div>
               <!-- /.book-info -->
             </li>
