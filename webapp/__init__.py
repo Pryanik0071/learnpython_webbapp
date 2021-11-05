@@ -16,7 +16,8 @@ def create_app():
 
     @app.route('/books/')
     def books():
-        query = db.session.query(Book)
+        # TODO: Warning:(19, 59) Unresolved attribute reference 'desc' for class 'int'
+        query = db.session.query(Book).order_by(Book.year.desc())
         year = request.args.get('year')
         min_price = request.args.get('min_price')
 
