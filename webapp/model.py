@@ -24,7 +24,7 @@ class Book(db.Model):
     year = db.Column(db.SmallInteger, nullable=False)
     publisher_id = db.Column(db.Integer, db.ForeignKey('publisher.id'),
                              nullable=False)
-    price = db.Column(db.String)
+    price = db.Column(db.Integer)
     description = db.Column(db.String)
     categories = db.relationship('Category', secondary=book_category, lazy='subquery',
                                  backref=db.backref('books', lazy='joined'))
@@ -55,6 +55,8 @@ class Publisher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
     books = db.relationship('Book', backref='publisher', lazy=True)
+    # books = db.relationship('Book', lazy='select',
+    #                         backref=db.backref('publisher', lazy='joined'))
 
     def __repr__(self):
         return f'Publisher: {self.title} id: {self.id}'
