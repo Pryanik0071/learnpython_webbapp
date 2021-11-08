@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 
 from webapp.model import db
-from webapp.model import Book, Publisher
+from webapp.model import Book, Publisher, Category, book_category
 from webapp.insert_books import insert_books_db
 
 
@@ -22,6 +22,9 @@ def create_app():
         query = db.session.query(Book).order_by(Book.year.desc())
         year = request.args.get('year')
         publisher = request.args.get('publisher')
+        language = request.args.get('language')
+        category = request.args.get('category')
+        skill = request.args.get('skill')
 
         if year:
             query = query.filter(Book.year == year)
