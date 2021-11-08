@@ -1,0 +1,133 @@
+<div class="filter-wrapper">
+  <form>
+    <h2 class="filter-title">Фильтры</h2>
+    <div class="filters skill-wrapper">
+      <h3 class="filter-skill">Уровень:</h3>
+      <p>
+        <input
+          name="skill"
+          type="radio"
+          value=""
+          {%
+          if
+          not
+          request.args.skill
+          %}
+          checked
+          {%
+          endif
+          %}
+        />
+        Всем
+      </p>
+      <p>
+        <input name="skill" type="radio" value="Детям" {% if request.args.skill
+        == "Детям" %} checked {% endif %}/> Детям
+      </p>
+      <p>
+        <input name="skill" type="radio" value="Начинающим" {% if
+        request.args.skill == "Начинающим" %} checked {% endif %}/> Начинающим
+      </p>
+      <p>
+        <input name="skill" type="radio" value="Опытным" {% if
+        request.args.skill == "Опытным" %} checked {% endif %}/> Опытным
+      </p>
+    </div>
+    <!-- /.filters .skill-wrapper -->
+
+    <div class="filters language-wrapper">
+      <h3 class="filter-language">Язык:</h3>
+      <p>
+        <input
+          name="language"
+          type="radio"
+          value=""
+          {%
+          if
+          not
+          request.args.language
+          %}
+          checked
+          {%
+          endif
+          %}
+        />
+        Все
+      </p>
+      <p>
+        <input name="language" type="radio" value="Python" {% if
+        request.args.language == "Python" %} checked {% endif %}/> Python
+      </p>
+      <p>
+        <input name="language" type="radio" value="JavaScript" {% if
+        request.args.language == "JavaScript" %} checked {% endif %}/>
+        JavaScript
+      </p>
+      <p>
+        <input name="language" type="radio" value="Java" {% if
+        request.args.language == "Java" %} checked {% endif %}/> Java
+      </p>
+    </div>
+    <!-- /.filters .language-wrapper -->
+
+    <div class="filters publisher-wrapper">
+      <h3 class="filter-publisher">Издательство:</h3>
+      <p>
+        <input
+          name="publisher"
+          type="radio"
+          value=""
+          {%
+          if
+          not
+          request.args.publisher
+          %}
+          checked
+          {%
+          endif
+          %}
+        />
+        Все
+      </p>
+      {% for publisher in publishers %}
+      <p>
+        <input name="publisher" type="radio" value="{{ publisher.title }}" {% if
+        request.args.publisher == publisher.title|string %} checked {% endif
+        %}/> {{ publisher.title }}
+      </p>
+      {% endfor %}
+    </div>
+    <!-- /.filters .publisher-wrapper -->
+
+    <div class="filters year-wrapper">
+      <h3 class="filter-year">Год:</h3>
+      <p>
+        <input
+          name="year"
+          type="radio"
+          value=""
+          {%
+          if
+          not
+          request.args.year
+          %}
+          checked
+          {%
+          endif
+          %}
+        />
+        За всё время
+      </p>
+      {% for year in years_list %}
+      <p>
+        <input name="year" type="radio" value="{{ year.year }}" {% if
+        request.args.year == year.year|string %} checked {% endif %}/> {{
+        year.year }}
+      </p>
+      {% endfor %}
+    </div>
+    <!-- /.filters .year-wrapper -->
+    <input type="submit" value="Отправить" />
+  </form>
+</div>
+<!-- /.filter-wrapper -->
