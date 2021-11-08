@@ -30,6 +30,12 @@ def create_app():
             query = query.filter(Book.year == year)
         if publisher:
             query = query.join(Publisher).filter(Publisher.title == publisher)
+        if language:
+            query = query.filter(Book.categories.any(name=language))
+        if category:
+            query = query.filter(Book.categories.any(name=category))
+        if skill:
+            query = query.filter(Book.categories.any(name=skill))
 
         book_list = query.all()
 
