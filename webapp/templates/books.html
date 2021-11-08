@@ -118,15 +118,37 @@
         <div class="filter-wrapper">
           <form>
             <h2 class="filter-title">Фильтры</h2>
-            <h3 class="filters filter-year">Год</h3>
+            <h3 class="filters filter-year">Год:</h3>
             <p>
-              <input name="year" type="radio" value="" {% if not request.args.year %} checked {% endif %} /> За всё время
+              <input
+                name="year"
+                type="radio"
+                value=""
+                {%
+                if
+                not
+                request.args.year
+                %}
+                checked
+                {%
+                endif
+                %}
+              />
+              За всё время
             </p>
             {% for year in years_list %}
             <p>
               <input name="year" type="radio" value="{{ year.year }}" {% if
               request.args.year == year.year|string %} checked {% endif %}/> {{
               year.year }}
+            </p>
+            {% endfor %}
+            <h3 class="filters filter-publishers">Издательство:</h3>
+            {% for publisher in publishers %}
+            <p>
+              <input name="publisher" type="radio" value="{{ publisher.title }}"
+              {% if request.args.publisher == publisher.title|string %} checked
+              {% endif %}/> {{ publisher.title }}
             </p>
             {% endfor %}
             <input type="submit" value="Отправить" />

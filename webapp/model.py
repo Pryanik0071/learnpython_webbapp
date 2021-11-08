@@ -55,8 +55,6 @@ class Publisher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False, unique=True)
     books = db.relationship('Book', backref='publisher', lazy=True)
-    # books = db.relationship('Book', lazy='select',
-    #                         backref=db.backref('publisher', lazy='joined'))
 
     def __repr__(self):
         return f'Publisher: {self.title} id: {self.id}'

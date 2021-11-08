@@ -18,15 +18,20 @@ def create_app():
     def books():
         # TODO: Warning:(19, 59) Unresolved attribute reference 'desc' for class 'int'
         years_list = db.session.query(Book.year).group_by(Book.year).order_by(Book.year.desc())
+        publisher_list = Publisher.query.all()
         query = db.session.query(Book).order_by(Book.year.desc())
         year = request.args.get('year')
+        publisher = request.args.get('publisher')
 
         if year:
             query = query.filter(Book.year == year)
+        if publisher:
+            query = query.join(Publisher).filter(Publisher.title == publisher)
 
         book_list = query.all()
 
-        return render_template('books.html', book_list=book_list, years_list=years_list)
+        return render_template('books.html', book_list=book_list,
+                               years_list=years_list, publishers=publisher_list)
 
     # @app.route('/books/')
     # def books():
