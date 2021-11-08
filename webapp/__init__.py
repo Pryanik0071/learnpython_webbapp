@@ -17,24 +17,16 @@ def create_app():
     @app.route('/books/')
     def books():
         # TODO: Warning:(19, 59) Unresolved attribute reference 'desc' for class 'int'
+        years_list = db.session.query(Book.year).group_by(Book.year).order_by(Book.year.desc())
         query = db.session.query(Book).order_by(Book.year.desc())
         year = request.args.get('year')
-        min_price = request.args.get('min_price')
 
         if year:
             query = query.filter(Book.year == year)
 
-        if min_price:
-            min_price = int(min_price)
-            query = query.filter(Book.price >= min_price)
-
         book_list = query.all()
 
-        # book_list = db.session.query(Book).join(Publisher).all()
-        # authors = book_list.book_author
-        # print(authors)
-        # print(book_list)
-        return render_template('books.html', book_list=book_list)
+        return render_template('books.html', book_list=book_list, years_list=years_list)
 
     # @app.route('/books/')
     # def books():
@@ -59,7 +51,6 @@ def create_app():
 
     @app.route('/book/<int:id_book>/')
     def book_info(id_book):
-        # book_data = Book.query.filter(Book.id == id_book).first()
         book_data = Book.query.get(id_book)
         print(book_data)
         if book_data:

@@ -1,12 +1,15 @@
 .books
   margin-top: 70px
   &-wrapper
-    padding-top: 80px
-    margin-left: 250px
+    padding-top: 60px
+    margin-left: 25px
 
 .container
   max-width: 1140px
   margin: auto
+  display: flex
+  flex-direction: row
+  justify-content: start
 
 .book
   &-item
@@ -15,6 +18,8 @@
     padding: 10px 10px 50px 10px
     margin-bottom: 50px
     border-bottom: 1px solid $gray-color
+    &:first-child
+      padding-top: 0px
   &-info
     display: flex
     justify-content: space-between
@@ -44,7 +49,7 @@
     font-weight: 600
     color: $ruby-color
     cursor: pointer
-    margin-bottom: 15px
+    margin-bottom: 25px
     overflow: hidden
     text-overflow: ellipsis
   &-authors
@@ -55,13 +60,24 @@
   &-author
     display: block
     height: 16px
-    margin-bottom: 15px
+    margin-bottom: 20px
     margin-right: 5px
   &-publisher
     height: 16px
-    margin-bottom: 15px
+    margin-bottom: 20px
+    &-info
+      color: $ruby-color
+      font-weight: 400
   &-year
     height: 16px
-    margin-bottom: 15px
+    margin-bottom: 20px
+    &-info
+      color: $ruby-color
+      font-weight: 400
   &-description
     height: 115px
+
+.filter
+  &-wrapper
+    min-width: 225px
+    padding-top: 60px

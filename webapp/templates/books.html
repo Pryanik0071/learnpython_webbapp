@@ -113,7 +113,26 @@
     <!-- /.header -->
 
     <section class="books">
+      {{ request.args }} {{ request.args.year }}
       <div class="container">
+        <div class="filter-wrapper">
+          <form>
+            <h2 class="filter-title">Фильтры</h2>
+            <h3 class="filters filter-year">Год</h3>
+            <p>
+              <input name="year" type="radio" value="" {% if not request.args.year %} checked {% endif %} /> За всё время
+            </p>
+            {% for year in years_list %}
+            <p>
+              <input name="year" type="radio" value="{{ year.year }}" {% if
+              request.args.year == year.year|string %} checked {% endif %}/> {{
+              year.year }}
+            </p>
+            {% endfor %}
+            <input type="submit" value="Отправить" />
+          </form>
+        </div>
+        <!-- /.filter-wrapper -->
         <div class="books-wrapper">
           <ul class="book-list">
             {% for book in book_list %}
@@ -134,12 +153,17 @@
                   {% endfor %}
                 </div>
                 <!-- /.authors-wrapper -->
-                <span class="book-price">{{ book.price }}</span>
-                <span class="book-publisher">{{ book.publisher.title }}</span>
-                <span class="book-year">{{ book.year }}</span>
-                {% if book.description|length > 255 %}
+                <span class="book-publisher"
+                  ><span class="book-publisher-info">Издательство:</span> {{
+                  book.publisher.title }}</span
+                >
+                <span class="book-year">
+                  <span class="book-year-info">Год:</span>
+                  {{ book.year }}</span
+                >
+                {% if book.description|length > 400 %}
                 <p class="book-description">
-                  {{ book.description[:255] + '...' }}
+                  {{ book.description[:400] + '...' }}
                 </p>
                 {% else %}
                 <p class="book-description">{{ book.description }}</p>
