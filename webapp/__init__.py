@@ -4,11 +4,18 @@ from webapp.model import db
 from webapp.model import Book, Publisher, Category, book_category
 from webapp.insert_books import insert_books_db
 
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
     db.init_app(app)
+
+    admin = Admin(app)
+    admin.add_view(ModelView(Book, db.session))
+    admin.add_view(ModelView(Category, db.session))
 
     @app.route('/')
     def index():

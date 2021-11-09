@@ -32,7 +32,7 @@ class Book(db.Model):
     isbn = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
-        return f'Book: {self.title} - id: {self.id}'
+        return f'{self.title} - id: {self.id}'
 
 
 class Author(db.Model):
@@ -40,7 +40,7 @@ class Author(db.Model):
     name = db.Column(db.Text, nullable=False, unique=True)
 
     def __repr__(self):
-        return f'Author: {self.name} id: {self.id}'
+        return f'{self.name} id: {self.id}'
 
 
 class Category(db.Model):
@@ -48,7 +48,7 @@ class Category(db.Model):
     name = db.Column(db.String, nullable=False, unique=True)
 
     def __repr__(self):
-        return f'Category: {self.name} - id: {self.id}'
+        return f'{self.name} - id: {self.id}'
 
 
 class Publisher(db.Model):
@@ -57,4 +57,4 @@ class Publisher(db.Model):
     books = db.relationship('Book', backref='publisher', lazy=True)
 
     def __repr__(self):
-        return f'Publisher: {self.title} id: {self.id}'
+        return f'{self.title} id: {self.id}'
