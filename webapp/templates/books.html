@@ -1,54 +1,51 @@
-{% include "blocks/base.html" %}
-{% block body %}
-  {% include "blocks/header.html" %}
-  <section class="books">
-      <div class="container">
-        {% include "blocks/filter.html" %}
+{% include "blocks/base.html" %} {% block body %} {% include
+"blocks/header.html" %}
+<section class="books">
+  <div class="container">
+    {% include "blocks/filter.html" %}
 
-        <div class="books-wrapper">
-          <ul class="book-list">
-            {% for book in book_list %}
-            <li class="book-item">
-              <a href="../book/{{ book.id }}" class="book-image__link"
-                ><img
-                  src="{{ book.image }}"
-                  alt="Image: {{ book.title  }}"
-                  class="book-image__img"
-              /></a>
-              <div class="book-info">
-                <a href="../book/{{ book.id }}" class="book-name"
-                  >{{ book.title }}</a
-                >
-                <div class="book-authors">
-                  {% for author in book.authors %}
-                  <span class="book-author">{{ author.name }}</span>
-                  {% endfor %}
-                </div>
-                <!-- /.authors-wrapper -->
-                <span class="book-publisher"
-                  ><span class="book-publisher-info">Издательство:</span> {{
-                  book.publisher.title }}</span
-                >
-                <span class="book-year">
-                  <span class="book-year-info">Год:</span>
-                  {{ book.year }}</span
-                >
-                {% if book.description|length > 400 %}
-                <p class="book-description">
-                  {{ book.description[:400] + '...' }}
-                </p>
-                {% else %}
-                <p class="book-description">{{ book.description }}</p>
-                {% endif %}
-              </div>
-              <!-- /.book-info -->
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <!-- /.books-wrapper -->
-      </div>
-      <!-- /.container -->
-    </section>
-    <!-- /.books -->
+    <div class="books-wrapper">
+      <ul class="book-list">
+        {% for book in book_list %}
+        <li class="book-item">
+          <a href="../book/{{ book.id }}" class="book-image__link"
+            ><img
+              src="{{ book.image }}"
+              alt="Image: {{ book.title  }}"
+              class="book-image__img"
+          /></a>
+          <div class="book-info">
+            <a href="../book/{{ book.id }}" class="book-name"
+              >{{ book.title }}</a
+            >
+            <div class="book-authors">
+              {% for author in book.authors %}
+              <span class="book-author">{{ author.name }}</span>
+              {% endfor %}
+            </div>
+            <!-- /.authors-wrapper -->
+            <span class="book-publisher"
+              ><span class="book-publisher-info">Издательство:</span> {{
+              book.publisher.title }}</span
+            >
+            <span class="book-year">
+              <span class="book-year-info">Год:</span>
+              {{ book.year }}</span
+            >
+            {% if book.description|length > 400 %}
+            <p class="book-description">{{ book.description[:400] + '...' }}</p>
+            {% else %}
+            <p class="book-description">{{ book.description }}</p>
+            {% endif %}
+          </div>
+          <!-- /.book-info -->
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- /.books-wrapper -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.books -->
 {% endblock %}

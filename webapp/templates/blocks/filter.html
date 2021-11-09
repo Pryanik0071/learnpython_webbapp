@@ -1,8 +1,8 @@
 <div class="filter-wrapper">
-  <form>
-    <h2 class="filter-title">Фильтры</h2>
+  <form class="filter-form">
     <div class="filters skill-wrapper">
-      <h3 class="filter-skill">Уровень:</h3>
+      <h3 class="filter-title">Уровень</h3>
+      {% set skills = [('Детям', 'Детям'), ('Начинающим', 'Начинающим'), ('Опытным', 'Опытным')] %}
       <p>
         <input
           name="skill"
@@ -11,7 +11,7 @@
           {%
           if
           not
-          request.args.skill
+          request.args.language
           %}
           checked
           {%
@@ -20,23 +20,20 @@
         />
         Всем
       </p>
-      <p>
-        <input name="skill" type="radio" value="Детям" {% if request.args.skill
-        == "Детям" %} checked {% endif %}/> Детям
-      </p>
-      <p>
-        <input name="skill" type="radio" value="Начинающим" {% if
-        request.args.skill == "Начинающим" %} checked {% endif %}/> Начинающим
-      </p>
-      <p>
-        <input name="skill" type="radio" value="Опытным" {% if
-        request.args.skill == "Опытным" %} checked {% endif %}/> Опытным
-      </p>
+      {% for skill_name, skill_link in skills %}
+        <p>
+          <input name="skill" type="radio" value="{{ skill_link }}" {% if
+          request.args.skill == skill_link %} checked {% endif %}/> {{ skill_name
+          }}
+        </p>
+      {% endfor %}
     </div>
     <!-- /.filters .skill-wrapper -->
 
     <div class="filters language-wrapper">
-      <h3 class="filter-language">Язык:</h3>
+      <h3 class="filter-title">Язык</h3>
+      {% set languages = [('Python', 'Python'), ('JavaScript',
+      'JavaScript'), ('Java', 'Java')] %}
       <p>
         <input
           name="language"
@@ -54,24 +51,18 @@
         />
         Все
       </p>
-      <p>
-        <input name="language" type="radio" value="Python" {% if
-        request.args.language == "Python" %} checked {% endif %}/> Python
-      </p>
-      <p>
-        <input name="language" type="radio" value="JavaScript" {% if
-        request.args.language == "JavaScript" %} checked {% endif %}/>
-        JavaScript
-      </p>
-      <p>
-        <input name="language" type="radio" value="Java" {% if
-        request.args.language == "Java" %} checked {% endif %}/> Java
-      </p>
+      {% for language_name, language_link in languages %}
+        <p>
+          <input name="language" type="radio" value="{{ language_link }}" {% if
+          request.args.language == language_link %} checked {% endif %}/> {{
+          language_name }}
+        </p>
+      {% endfor %}
     </div>
     <!-- /.filters .language-wrapper -->
 
     <div class="filters publisher-wrapper">
-      <h3 class="filter-publisher">Издательство:</h3>
+      <h3 class="filter-title">Издательство</h3>
       <p>
         <input
           name="publisher"
@@ -100,7 +91,7 @@
     <!-- /.filters .publisher-wrapper -->
 
     <div class="filters year-wrapper">
-      <h3 class="filter-year">Год:</h3>
+      <h3 class="filter-title">Год</h3>
       <p>
         <input
           name="year"
@@ -127,7 +118,7 @@
       {% endfor %}
     </div>
     <!-- /.filters .year-wrapper -->
-    <input type="submit" value="Отправить" />
+    <input type="submit" value="Отправить" class="button-send" />
   </form>
 </div>
 <!-- /.filter-wrapper -->
