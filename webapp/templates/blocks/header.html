@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-wrapper">
     <div class="menu">
-      <a href="/" class="menu-logo">DeveloperBooks</a>
+      <a href="{{ url_for('index', _external=True) }}" class="menu-logo">DeveloperBooks</a>
       <!-- /.logo -->
       <button class="menu-button menu-button--mobile--hidden">
         <span class="menu-button__line"></span>
@@ -15,66 +15,51 @@
         <nav class="nav-wrapper">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#" class="nav__link" data-category="level">Уровень</a>
+              <span class="nav__link" data-category="level">Уровень</span>
               <ul class="dropdown-menu" data-category="level">
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Начинающим</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Опытным</a>
-                </li>
+                {% set skills_list = ['Всем', 'Детям', 'Начинающим', 'Опытным'] %}
+                {% for skill in skills_list %}
+                  <li class="dropdown-menu__item">
+                  {% if skill == 'Всем' %} {% set skill_link = '' %} {% else %} {% set skill_link = skill %} {% endif %}
+                  <a href="{{ url_for('books', _external=True, skill=skill_link) }}" class="dropdown-menu__link">{{ skill }}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link" data-category="language">Язык</a>
+              <span class="nav__link" data-category="language">Язык</span>
               <ul class="dropdown-menu" data-category="language">
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Python</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">JavaScript</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
+                {% set language_list = ['Все', 'Python', 'JavaScript', 'Java'] %}
+                {% for language in language_list %}
+                  <li class="dropdown-menu__item">
+                  {% if language == 'Все' %} {% set language_link = '' %} {% else %} {% set language_link = language %} {% endif %}
+                  <a href="{{ url_for('books', _external=True, language=language_link) }}" class="dropdown-menu__link">{{ language }}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link" data-category="theme"
-                >Направление</a
-              >
+              <span class="nav__link" data-category="theme">Направление</span>
               <ul class="dropdown-menu" data-category="theme">
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Синтаксис</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Вэб-разработка</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
+                {% set theme_list = ['Все'] %}
+                {% for theme in theme_list %}
+                  <li class="dropdown-menu__item">
+                  {% if theme == 'Все' %} {% set theme_link = '' %} {% else %} {% set theme_link = theme %} {% endif %}
+                  <a href="{{ url_for('books', _external=True, theme=theme_link) }}" class="dropdown-menu__link">{{ theme }}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link" data-category="publisher"
-                >Издательство</a
-              >
+              <span class="nav__link" data-category="publisher">Издательство</span>
               <ul class="dropdown-menu" data-category="publisher">
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Питер</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
-                <li class="dropdown-menu__item">
-                  <a href="#" class="dropdown-menu__link">Пример</a>
-                </li>
+                {% set publisher_list = ['Все', 'Питер', 'Тест1', '12'] %}
+                {% for publisher in publisher_list %}
+                  <li class="dropdown-menu__item">
+                  {% if publisher == 'Все' %} {% set publisher_link = '' %} {% else %} {% set publisher_link = publisher %} {% endif %}
+                  <a href="{{ url_for('books', _external=True, publisher=publisher_link) }}" class="dropdown-menu__link">{{ publisher }}</a>
+                  </li>
+                {% endfor %}
               </ul>
             </li>
           </ul>
