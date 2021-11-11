@@ -51,12 +51,13 @@
             <li class="nav__item">
               <span class="nav__link" data-category="theme">Направление</span>
               <ul class="dropdown-menu" data-category="theme">
-                {% set theme_list = ['Все', 'DevOps', 'Алгоритмы и структуры данных',
-                'Базы данных', 'Высоконагруженные приложения',
-                'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная безопасность',
-                'Компьютерное зрение', 'Машинное обучение',
-                'Обработка естественного языка', 'Парсинг', 'Работа с микроконтроллерами', 'Разработка игр',
-                'Сетевое программирование', 'Тестирование'] %} {% for theme in theme_list
+                {% set theme_list = ['Все', 'DevOps', 'Алгоритмы и структуры
+                данных', 'Базы данных', 'Высоконагруженные приложения',
+                'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная
+                безопасность', 'Компьютерное зрение', 'Машинное обучение',
+                'Обработка естественного языка', 'Парсинг', 'Работа с
+                микроконтроллерами', 'Разработка игр', 'Сетевое
+                программирование', 'Тестирование'] %} {% for theme in theme_list
                 %}
                 <li class="dropdown-menu__item">
                   {% if theme == 'Все' %} {% set theme_link = '' %} {% else %}
@@ -75,9 +76,8 @@
                 >Издательство</span
               >
               <ul class="dropdown-menu" data-category="publisher">
-                {% set publishers = [('Все', ''), ('Питер', 'Питер'), ('Тест1',
-                'Тест1'), ('12', '12')] %} {% for publisher_name, publisher_link
-                in publishers %}
+                {% set publishers = [('Питер', 'Питер'), ] %} {% for
+                publisher_name, publisher_link in publishers %}
                 <li class="dropdown-menu__item">
                   <a
                     href="{{ url_for('books', _external=True, publisher=publisher_link) }}"

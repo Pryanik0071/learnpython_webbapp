@@ -1,2 +1,132 @@
-{% extends "blocks/base.html" %} {% block body %} {% include
-"blocks/header.html" %} {% endblock %}
+<!-- prettier-ignore -->
+{% include "blocks/base.html" %}
+{% block body %}
+  {% include "blocks/header.html" %}
+{% endblock %}
+
+<section class="main">
+  <div class="title-container">
+    <h1 class="title-name">Все категории книг</h1>
+    <span class="title-description">Обновления каждый месяц</span>
+  </div>
+  <!-- /.title-container -->
+  <div class="block-container">
+    <ul class="block-filters">
+      <li class="block-item">
+        <img
+          src="{{ url_for('static', filename='img/code_skills.jpg') }}"
+          alt="Code image"
+          class="block-image"
+        />
+        <div class="block-content">
+          <span class="block-number">1.</span>
+          <h2 class="block-title">По уровню</h2>
+          <ul class="block-list">
+            <!-- prettier-ignore -->
+            {% set skills = [('Всем', ''), ('Детям', 'Детям'),
+              ('Начинающим', 'Начинающим'), ('Опытным', 'Опытным')] %}
+            {% for skill_name, skill_link in skills %}
+            <li class="block-list__item">
+              <!-- prettier-ignore -->
+              <a class="block-list__link"
+              href="{{ url_for('books', _external=True, skill=skill_link) }}">
+              {{ skill_name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- /.block-list -->
+        </div>
+        <!-- /.block-content -->
+      </li>
+      <!-- /.block-item -->
+      <li class="block-item">
+        <img
+          src="{{ url_for('static', filename='img/code_language.png') }}"
+          alt="Code image"
+          class="block-image"
+        />
+        <div class="block-content">
+          <span class="block-number">2.</span>
+          <h2 class="block-title">По языку</h2>
+          <ul class="block-list">
+            <!-- prettier-ignore -->
+            {% set languages = [('Все', ''), ('Python', 'Python'),
+              ('JavaScript', 'JavaScript'), ('Java', 'Java')] %}
+            {% for language_name, language_link in languages %}
+            <li class="block-list__item">
+              <!-- prettier-ignore -->
+              <a class="block-list__link"
+              href="{{ url_for('books', _external=True, language=language_link) }}">
+              {{ language_name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- /.block-list -->
+        </div>
+        <!-- /.block-content -->
+      </li>
+      <!-- /.block-item -->
+      <li class="block-item">
+        <img
+          src="{{ url_for('static', filename='img/code_theme.jpg') }}"
+          alt="Code image"
+          class="block-image"
+        />
+        <div class="block-content">
+          <span class="block-number">3.</span>
+          <h2 class="block-title">По направлению</h2>
+          <ul class="block-list">
+            <!-- prettier-ignore -->
+            {% set theme_list = ['Все', 'DevOps', 'Алгоритмы и структуры данных',
+                'Базы данных', 'Высоконагруженные приложения',
+                'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная безопасность',
+                'Компьютерное зрение', 'Машинное обучение',
+                'Обработка естественного языка', 'Парсинг', 'Работа с микроконтроллерами', 'Разработка игр',
+                'Сетевое программирование', 'Тестирование'] %}
+            {% for theme in theme_list %}
+            {% if theme == 'Все' %} {% set theme_link = '' %} {% else %} {% set theme_link = theme %} {% endif %}
+            <li class="block-list__item">
+              <!-- prettier-ignore -->
+              <a class="block-list__link"
+              href="{{ url_for('books', _external=True, theme=theme_link) }}">
+              {{ theme }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- /.block-list -->
+        </div>
+        <!-- /.block-content -->
+      </li>
+      <!-- /.block-item -->
+      <li class="block-item">
+        <img
+          src="{{ url_for('static', filename='img/books.jpg') }}"
+          alt="Code image"
+          class="block-image"
+        />
+        <div class="block-content">
+          <span class="block-number">4.</span>
+          <h2 class="block-title">Издательства</h2>
+          <ul class="block-list">
+            <!-- prettier-ignore -->
+            {% set publishers = [('Все', ''), ('Питер', 'Питер')] %}
+            {% for publisher_name, publisher_link in publishers %}
+            <li class="block-list__item">
+              <!-- prettier-ignore -->
+              <a class="block-list__link"
+              href="{{ url_for('books', _external=True, publisher=publisher_link) }}">
+              {{ publisher_name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <!-- /.block-list -->
+        </div>
+        <!-- /.block-content -->
+      </li>
+      <!-- /.block-item -->
+    </ul>
+    <!-- /.main-filters -->
+  </div>
+  <!-- /.main-container -->
+</section>
+<!-- /.title -->
