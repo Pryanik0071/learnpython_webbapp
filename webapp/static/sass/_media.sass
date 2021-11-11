@@ -93,4 +93,17 @@
         height: 2px
         background-color: $ruby-color
 
-// @media (max-width: 576px)
+  .title
+    &-container
+      padding-top: 50px
+  
+  .block
+    &-item
+      max-width: 500px
+
+@media (max-width: 576px)
+  .block
+    &-item
+      max-width: 90%
+    &-image
+      display: none
