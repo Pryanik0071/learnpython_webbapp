@@ -7,6 +7,8 @@
 
 .button
   &-send
+    display: block
+    margin: auto
     max-width: 90%  
     padding: 5px 10px
     border: 2px solid $ruby-color
@@ -27,7 +29,7 @@
 .filter
   &-title
     max-width: 90%
-    height: 18px
+    height: 21px
     font-family: $head-font
     font-size: 18px
     text-decoration: none
@@ -36,6 +38,17 @@
     margin-bottom: 10px
     overflow: hidden
     text-overflow: ellipsis
+  &-value
+    height: 17px
+    max-width: 90%
+    font-family: $paragraph-font
+    font-size: 14px
+    font-weight: 300
+    color: $blue-color
+    overflow: hidden
+    text-overflow: ellipsis
+  &-button
+    background: $indigo-color
 
 .test-color
   color: $indigo-color
