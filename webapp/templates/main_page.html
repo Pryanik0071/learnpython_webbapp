@@ -6,7 +6,7 @@
 
 <section class="main">
   <div class="title-container">
-    <h1 class="title-name">Все категории книг</h1>
+    <a href="{{ url_for('books', _external=True) }}" class="title-link"><h1 class="title-name">Все категории книг</h1></a>
     <span class="title-description">Обновления каждый месяц</span>
   </div>
   <!-- /.title-container -->
@@ -23,7 +23,7 @@
           <h2 class="block-title">По уровню</h2>
           <ul class="block-list">
             <!-- prettier-ignore -->
-            {% set skills = [('Всем', ''), ('Детям', 'Детям'),
+            {% set skills = [('Детям', 'Детям'),
               ('Начинающим', 'Начинающим'), ('Опытным', 'Опытным')] %}
             {% for skill_name, skill_link in skills %}
             <li class="block-list__item">
@@ -50,7 +50,7 @@
           <h2 class="block-title">По языку</h2>
           <ul class="block-list">
             <!-- prettier-ignore -->
-            {% set languages = [('Все', ''), ('Python', 'Python'),
+            {% set languages = [('Python', 'Python'),
               ('JavaScript', 'JavaScript'), ('Java', 'Java')] %}
             {% for language_name, language_link in languages %}
             <li class="block-list__item">
@@ -77,18 +77,17 @@
           <h2 class="block-title">По направлению</h2>
           <ul class="block-list">
             <!-- prettier-ignore -->
-            {% set theme_list = ['Все', 'DevOps', 'Алгоритмы и структуры данных',
+            {% set theme_list = ['DevOps', 'Алгоритмы и структуры данных',
                 'Базы данных', 'Высоконагруженные приложения',
                 'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная безопасность',
                 'Компьютерное зрение', 'Машинное обучение',
                 'Обработка естественного языка', 'Парсинг', 'Работа с микроконтроллерами', 'Разработка игр',
                 'Сетевое программирование', 'Тестирование'] %}
             {% for theme in theme_list %}
-            {% if theme == 'Все' %} {% set theme_link = '' %} {% else %} {% set theme_link = theme %} {% endif %}
             <li class="block-list__item">
               <!-- prettier-ignore -->
               <a class="block-list__link"
-              href="{{ url_for('books', _external=True, theme=theme_link) }}">
+              href="{{ url_for('books', _external=True, theme=theme) }}">
               {{ theme }}</a>
             </li>
             {% endfor %}
@@ -109,7 +108,7 @@
           <h2 class="block-title">Издательства</h2>
           <ul class="block-list">
             <!-- prettier-ignore -->
-            {% set publishers = [('Все', ''), ('Питер', 'Питер')] %}
+            {% set publishers = [('Питер', 'Питер'), ] %}
             {% for publisher_name, publisher_link in publishers %}
             <li class="block-list__item">
               <!-- prettier-ignore -->
