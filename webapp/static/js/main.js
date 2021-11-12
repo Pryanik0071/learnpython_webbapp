@@ -35,4 +35,28 @@ $(document).ready(function () {
       container.hide();
     }
   });
+
+  $('[data-btn="toTop"]').hide();
+
+  // появление/затухание кнопки #back-top
+  $(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('[data-btn="toTop"]').fadeIn();
+      } else {
+        $('[data-btn="toTop"]').fadeOut();
+      }
+    });
+
+    // при клике на ссылку плавно поднимаемся вверх
+    $('[data-btn="toTop"]').click(function () {
+      $("body,html").animate(
+        {
+          scrollTop: 0,
+        },
+        1000
+      );
+      return false;
+    });
+  });
 });
