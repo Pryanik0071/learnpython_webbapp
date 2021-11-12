@@ -101,9 +101,27 @@
     &-item
       max-width: 500px
 
+  .footer
+    &-wrapper
+      flex-direction: column
+      align-items: start
+    &-projects
+      margin-bottom: 20px
+
+  .contacts
+    &-list
+      flex-direction: row
+      
 @media (max-width: 576px)
   .block
     &-item
       max-width: 90%
     &-image
       display: none
+  
+  .contacts
+    &-list
+      flex-direction: column
+    &-item
+      margin-bottom: 20px
+      margin-right: 0px
