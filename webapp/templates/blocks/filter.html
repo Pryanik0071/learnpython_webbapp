@@ -2,96 +2,63 @@
   <form class="filter-form">
     <div class="filters skill-wrapper">
       <h3 class="filter-title">Уровень</h3>
-      {% set skills = [('Детям', 'Детям'), ('Начинающим', 'Начинающим'), ('Опытным', 'Опытным')] %}
+      {% set skills = [('Детям', 'Детям'), ('Начинающим', 'Начинающим'),
+      ('Опытным', 'Опытным')] %}
       <p class="filter-value">
-        <input class="filter-button"
-          name="skill"
-          type="radio"
-          value=""
-          {%
-          if
-          not
-          request.args.language
-          %}
-          checked
-          {%
-          endif
-          %}
-        />
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="skill" type="radio" value=""
+          {% if not request.args.skill %} checked {% endif %} />
         Всем
       </p>
       {% for skill_name, skill_link in skills %}
-        <p class="filter-value">
-          <input class="filter-button" name="skill" type="radio" value="{{ skill_link }}" {% if
-          request.args.skill == skill_link %} checked {% endif %}/> {{ skill_name
-          }}
-        </p>
+      <p class="filter-value">
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="skill" type="radio" value="{{ skill_link }}" 
+        {% if request.args.skill == skill_link %} checked {% endif %}/> {{ skill_name }}
+      </p>
       {% endfor %}
     </div>
     <!-- /.filters .skill-wrapper -->
 
     <div class="filters language-wrapper">
       <h3 class="filter-title">Язык</h3>
-      {% set languages = [('Python', 'Python'), ('JavaScript',
-      'JavaScript'), ('Java', 'Java')] %}
+      {% set languages = [('Python', 'Python'), ('JavaScript', 'JavaScript'),
+      ('Java', 'Java')] %}
       <p class="filter-value">
-        <input class="filter-button"
-          name="language"
-          type="radio"
-          value=""
-          {%
-          if
-          not
-          request.args.language
-          %}
-          checked
-          {%
-          endif
-          %}
-        />
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="language" type="radio" value=""
+          {% if not request.args.language %} checked {% endif %} />
         Все
       </p>
       {% for language_name, language_link in languages %}
-        <p class="filter-value">
-          <input class="filter-button" name="language" type="radio" value="{{ language_link }}" {% if
-          request.args.language == language_link %} checked {% endif %}/> {{
-          language_name }}
-        </p>
+      <p class="filter-value">
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="language" type="radio" value="{{ language_link }}" 
+        {% if request.args.language == language_link %} checked {% endif %}/> {{ language_name }}
+      </p>
       {% endfor %}
     </div>
     <!-- /.filters .language-wrapper -->
 
     <div class="filters theme-wrapper">
       <h3 class="filter-title">Направление</h3>
-      {% set themes = ['DevOps', 'Алгоритмы и структуры данных',
-                'Базы данных', 'Высоконагруженные приложения',
-                'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная безопасность',
-                'Компьютерное зрение', 'Машинное обучение',
-                'Обработка естественного языка', 'Парсинг', 'Работа с микроконтроллерами', 'Разработка игр',
-                'Сетевое программирование', 'Тестирование'] %}
+      <!-- prettier-ignore -->
+      {% set themes = ['DevOps', 'Алгоритмы и структуры данных', 'Базы данных', 'Высоконагруженные приложения', 
+      'Вэб-приложения', 'Графические интерфейсы', 'Компьютерная безопасность', 'Компьютерное зрение', 
+      'Машинное обучение', 'Обработка естественного языка', 'Парсинг', 'Работа с микроконтроллерами', 
+      'Разработка игр', 'Сетевое программирование', 'Тестирование'] %}
       <p class="filter-value">
-        <input class="filter-button"
-          name="theme"
-          type="radio"
-          value=""
-          {%
-          if
-          not
-          request.args.theme
-          %}
-          checked
-          {%
-          endif
-          %}
-        />
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="theme" type="radio" value=""
+          {% if not request.args.theme %} checked {% endif %} />
         Все
       </p>
       {% for theme in themes %}
-        <p class="filter-value">
-          <input class="filter-button" name="theme" type="radio" value="{{ theme }}" {% if
-          request.args.theme == theme %} checked {% endif %}/> {{
-          theme }}
-        </p>
+      <p class="filter-value">
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="theme" type="radio" value="{{ theme }}"
+         {% if request.args.theme == theme %} checked {% endif %}/> {{ theme }}
+      </p>
       {% endfor %}
     </div>
     <!-- /.filters .language-wrapper -->
@@ -99,27 +66,16 @@
     <div class="filters publisher-wrapper">
       <h3 class="filter-title">Издательство</h3>
       <p class="filter-value">
-        <input class="filter-button"
-          name="publisher"
-          type="radio"
-          value=""
-          {%
-          if
-          not
-          request.args.publisher
-          %}
-          checked
-          {%
-          endif
-          %}
-        />
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="publisher" type="radio" value=""
+          {% if not request.args.publisher %} checked {% endif %} />
         Все
       </p>
       {% for publisher in publishers %}
       <p class="filter-value">
-        <input class="filter-button" name="publisher" type="radio" value="{{ publisher.title }}" {% if
-        request.args.publisher == publisher.title|string %} checked {% endif
-        %}/> {{ publisher.title }}
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="publisher" type="radio" value="{{ publisher.title }}" 
+        {% if request.args.publisher == publisher.title|string %} checked {% endif %}/> {{ publisher.title }}
       </p>
       {% endfor %}
     </div>
@@ -128,27 +84,16 @@
     <div class="filters year-wrapper">
       <h3 class="filter-title">Год</h3>
       <p class="filter-value">
-        <input class="filter-button"
-          name="year"
-          type="radio"
-          value=""
-          {%
-          if
-          not
-          request.args.year
-          %}
-          checked
-          {%
-          endif
-          %}
-        />
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="year" type="radio" value=""
+          {% if not request.args.year %} checked {% endif %} />
         За всё время
       </p>
       {% for year in years_list %}
       <p class="filter-value">
-        <input class="filter-button" name="year" type="radio" value="{{ year.year }}" {% if
-        request.args.year == year.year|string %} checked {% endif %}/> {{
-        year.year }}
+        <!-- prettier-ignore -->
+        <input class="filter-button" name="year" type="radio" value="{{ year.year }}" 
+        {% if request.args.year == year.year|string %} checked {% endif %}/> {{ year.year }}
       </p>
       {% endfor %}
     </div>
