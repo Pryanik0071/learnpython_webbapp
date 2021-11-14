@@ -2,11 +2,39 @@
   .header
     &-wrapper
       max-width: 960px
+  
+  .container
+    max-width: 960px
+
+  .books
+    &-wrapper
+      max-width: 710px
+
+  .book
+    &-item
+      padding-bottom: 20px
+      margin-bottom: 20px
 
 @media (max-width: 992px)
   .header
     &-wrapper
       max-width: 720px
+
+  .container
+    max-width: 720px
+  
+  .books
+    &-wrapper
+      margin-left: 10px
+
+  .book
+    &-item
+      flex-direction: column
+      align-items: center
+    &-image
+      &__link
+        margin: 0
+        margin-bottom: 20px
 
   .nav
     &__item

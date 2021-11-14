@@ -52,11 +52,11 @@ def create_app():
     @app.route('/book/<int:id_book>/')
     def book_info(id_book):
         book_data = Book.query.get(id_book)
-        print(book_data)
         if book_data:
-            print(book_data.id)
-        return render_template('book_details.html',
-                               book_data=book_data)
+            return render_template('book_details.html',
+                                   book_data=book_data)
+        # TODO: Заглушка
+        return 'Error!'
 
     @app.route('/get-books/', methods=['POST'])
     def get_books():
