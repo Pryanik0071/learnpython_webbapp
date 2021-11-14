@@ -1,5 +1,7 @@
-{% include "blocks/base.html" %} {% block body %} {% include
-"blocks/header.html" %}
+<!-- prettier-ignore -->
+{% include "blocks/base.html" %} 
+{% block body %} 
+  {% include "blocks/header.html" %}
 <section class="books">
   <div class="container">
     {% include "blocks/filter.html" %}
@@ -32,6 +34,11 @@
               <span class="book-year-info">Год:</span>
               {{ book.year }}</span
             >
+            <div class="book-categories">
+              {% for category in book.categories %}
+              <span class="book-category">{{ category.name }}</span>
+              {% endfor %}
+            </div>
             {% if book.description|length > 400 %}
             <p class="book-description">{{ book.description[:400] + '...' }}</p>
             {% else %}
@@ -49,3 +56,9 @@
 </section>
 <!-- /.books -->
 {% endblock %}
+
+<!-- prettier-ignore -->
+{% include "blocks/footer.html" %}
+
+<!-- prettier-ignore -->
+{% include "blocks/to_top_button.html" %}

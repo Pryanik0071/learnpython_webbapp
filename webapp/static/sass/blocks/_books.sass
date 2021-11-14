@@ -1,8 +1,10 @@
 .books
   margin-top: 70px
+  margin-bottom: 70px
   &-wrapper
     padding-top: 60px
     margin-left: 50px
+    min-width: 890px
 
 .container
   max-width: 1140px
@@ -59,17 +61,31 @@
     align-items: center
   &-author
     display: block
-    height: 16px
     margin-bottom: 20px
     margin-right: 5px
+  &-categories
+    display: flex
+    flex-direction: row
+    justify-content: start
+    align-items: center
+    flex-wrap: wrap
+  &-category
+    display: block
+    border: 1px solid $blue-color
+    border-radius: 5px
+    color: $indigo-color
+    padding: 5px
+    margin-bottom: 20px
+    margin-right: 10px
+    font-family: $paragraph-font
+    font-size: 15px
+    font-weight: 300
   &-publisher
-    height: 16px
     margin-bottom: 20px
     &-info
       color: $ruby-color
       font-weight: 400
   &-year
-    height: 16px
     margin-bottom: 20px
     &-info
       color: $ruby-color
